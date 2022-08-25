@@ -9,7 +9,14 @@
  */
 
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View, ToastAndroid, StatusBar} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ToastAndroid,
+  StatusBar,
+  Platform,
+} from 'react-native';
 import {Camera} from 'react-native-vision-camera';
 import {requestAllPermissions} from './src/Permissions';
 
@@ -25,7 +32,9 @@ enum CaptureStatus {
 }
 
 const showToast = (message: string) => {
-  ToastAndroid.show(message, ToastAndroid.SHORT);
+  if (Platform.OS === 'android') {
+    ToastAndroid.show(message, ToastAndroid.SHORT);
+  }
 };
 
 const App = () => {
@@ -61,7 +70,7 @@ const App = () => {
           },
         });
         setCaptureStatus(CaptureStatus.RECORDING);
-      }, 5000);
+      }, 3000);
     }
     if (captureStatus === CaptureStatus.RECORDING) {
       setTimeout(() => {
