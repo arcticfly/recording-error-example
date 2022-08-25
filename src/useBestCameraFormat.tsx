@@ -34,17 +34,17 @@ export const useBestCameraFormat = () => {
 
     if (formats && formats.length) {
       const bestFormat = formats[0];
-      // android videoHeight and videoWidth can sometimes be switched,
-      // so we need to make sure height is always greater than width in portrait mode
-      if (
-        Platform.OS === 'android' &&
-        bestFormat.videoHeight < bestFormat.videoWidth
-      ) {
-        [bestFormat.videoHeight, bestFormat.videoWidth] = [
-          bestFormat.videoWidth,
-          bestFormat.videoHeight,
-        ];
-      }
+      // // android videoHeight and videoWidth can sometimes be switched,
+      // // so we need to make sure height is always greater than width in portrait mode
+      // if (
+      //   Platform.OS === 'android' &&
+      //   bestFormat.videoHeight < bestFormat.videoWidth
+      // ) {
+      //   [bestFormat.videoHeight, bestFormat.videoWidth] = [
+      //     bestFormat.videoWidth,
+      //     bestFormat.videoHeight,
+      //   ];
+      // }
       return bestFormat;
     }
   }, [camera?.formats]);

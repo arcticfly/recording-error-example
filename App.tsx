@@ -46,6 +46,7 @@ const App = () => {
   useEffect(() => {
     if (captureStatus === CaptureStatus.IDLE) {
       setTimeout(() => {
+        console.log('starting recording');
         cameraRef.current?.startRecording({
           onRecordingFinished: videoFile => {
             console.log('recording succeeded');
