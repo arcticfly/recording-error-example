@@ -7,7 +7,7 @@ This repo contains an extremely simple react native recording app that:
 
 This repo was created to demonstrate a bug in [react-native-vision-camera](https://github.com/mrousavy/react-native-vision-camera) that results in videos failing to record after the camera has started and stopped recording some number of times (usually more than 30 in this simplified version, but sometimes less than 10 when the camera is running in simultaneously with other processes). The error looks like this:
 
-```json
+```
 {
     "cause": {
         "message": "[capture/no-valid-data] The recording failed because no valid data was produced to be recorded.
